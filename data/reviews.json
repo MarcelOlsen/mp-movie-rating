@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "movieId": 1,
+    "rating": 5,
+    "title": "This movie was awesome!",
+    "content": "I really enjoyed this movie. It was a great story with great acting."
+  },
+  {
+    "id": 2,
+    "movieId": 1,
+    "rating": 4,
+    "title": "I really enjoyed this movie.",
+    "content": "This movie was really good. I would recommend it to anyone."
+  },
+  {
+    "id": 3,
+    "movieId": 2,
+    "rating": 3,
+    "title": "This movie was okay.",
+    "content": "This movie was okay. I didn't really like it, but it wasn't terrible."
+  },
+  {
+    "id": 4,
+    "movieId": 2,
+    "rating": 2,
+    "title": "I didn't really like this movie.",
+    "content": "I didn't really like this movie. It was boring and the acting was bad."
+  },
+  {
+    "id": "e70bc393-008f-4c91-bf9d-303bdefcd306",
+    "content": "test content",
+    "title": "test",
+    "rating": "5",
+    "movieId": 1
+  },
+  {
+    "movieId": "1",
+    "title": "test title",
+    "content": "test content",
+    "rating": "5"
+  }
+]
