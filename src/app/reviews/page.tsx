@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 type ReviewFormValues = {
@@ -11,28 +11,22 @@ type ReviewFormValues = {
 };
 
 const ReviewPage = () => {
-  const [reviewData, setReviewData] = useState<ReviewFormValues | undefined>(
-    undefined,
-  );
   const { register, handleSubmit } = useForm<ReviewFormValues>();
-  const onSubmit: SubmitHandler<ReviewFormValues> = (data) =>
-    setReviewData(data);
-
-  const postReview = async () => {
-    const response = await fetch("/api/movie/review", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(reviewData),
-    });
-    const data = await response.json();
-    console.log(data);
+  const onSubmit: SubmitHandler<ReviewFormValues> = async (data) => {
+    await axios
+      .post("/api/reviews", {
+        movieId: parseInt(data.movieId.toString()),
+        title: data.title,
+        content: data.content,
+        rating: parseInt(data.rating.toString()),
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .then((response) => {
+        console.log(response);
+      });
   };
-
-  useEffect(() => {
-    postReview();
-  }, [reviewData]);
 
   return (
     <div className="flex flex-col justify-center items-center gap-y-6 w-[400px]">

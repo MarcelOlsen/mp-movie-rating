@@ -39,5 +39,11 @@
     "title": "test title",
     "content": "test content",
     "rating": "5"
+  },
+  {
+    "movieId": "2",
+    "title": "test new",
+    "content": "new test",
+    "rating": "2"
   }
 ]

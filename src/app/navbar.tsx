@@ -12,7 +12,7 @@ export const Navbar = () => {
       </div>
       <div className="flex gap-x-4">
         <NavbarLink title="Review" href="/reviews" />
-        <NavbarLink title="Movie" href="/movies" />
+        <NavbarLink title="Movies" href="/movies" />
       </div>
     </nav>
   );

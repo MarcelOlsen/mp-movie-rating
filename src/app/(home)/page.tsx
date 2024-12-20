@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 import { Review } from "@/types/review";
 
@@ -10,9 +11,14 @@ export default function Home() {
   const [reviews, setReviews] = useState<Review[]>([]);
 
   const fetchReviews = async () => {
-    const response = await fetch("/api/movie/review");
-    const data = await response.json();
-    setReviews(data.reviews);
+    const response = await axios
+      .get<Review[]>("/api/reviews")
+      .catch((error) => {
+        console.log(error);
+      });
+
+    setReviews(response.data.reviews);
+    console.log(reviews);
   };
 
   useEffect(() => {
