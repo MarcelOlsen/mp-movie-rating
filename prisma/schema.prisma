@@ -23,8 +23,9 @@ model Review {
 }
 
 model Movie {
-  id     Int      @id @default(autoincrement())
-  title  String
-  imgUrl String?
-  Review Review[]
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  imgUrl      String?
+  Review      Review[]
 }

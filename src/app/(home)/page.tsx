@@ -18,7 +18,6 @@ export default function Home() {
       });
 
     setReviews(response.data.reviews);
-    console.log(reviews);
   };
 
   useEffect(() => {

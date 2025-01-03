@@ -17,7 +17,7 @@ export const GET = async (req: NextApiRequest) => {
 
   const reviews = await prisma.review.findMany({
     where: {
-      id: parseInt(movieId),
+      movieId: parseInt(movieId),
     },
   });
 
