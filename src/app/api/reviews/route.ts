@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 
 export const GET = async (req: NextApiRequest) => {
   const { searchParams } = new URL(req.url!);
-  const movieId = searchParams.get("id");
+  const movieId = searchParams.get("movieId");
 
   if (!movieId) {
     const reviews = await prisma.review.findMany({});

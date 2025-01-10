@@ -5,7 +5,7 @@ import axios from "axios";
 
 import { Review } from "@/types/review";
 
-import { ReviewCard } from "./components/review-card";
+import { ReviewCard } from "../../components/review-card";
 
 export default function Home() {
   const [reviews, setReviews] = useState<Review[]>([]);

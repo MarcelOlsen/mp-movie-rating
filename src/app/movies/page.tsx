@@ -5,6 +5,7 @@ import axios from "axios";
 
 import { Movie } from "@/types/movie";
 import { MovieCard } from "./components/movie-card";
+import { AddMovieDialog } from "@/components/add-movie-dialog";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -25,7 +26,8 @@ const MoviesPage = () => {
   }, []);
 
   return (
-    <div>
+    <>
+      <AddMovieDialog />
       {movies.map((movie, idx) => (
         <MovieCard
           key={idx}
@@ -34,7 +36,7 @@ const MoviesPage = () => {
           movieId={movie.id}
         />
       ))}
-    </div>
+    </>
   );
 };
 
