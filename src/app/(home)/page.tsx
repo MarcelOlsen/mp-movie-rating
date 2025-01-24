@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 import { Review } from "@/types/review";
 
+import { AddReviewDialog } from "@/components/add-reveiw-dialog";
 import { ReviewCard } from "../../components/review-card";
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
 
   return (
     <>
+      <AddReviewDialog />
       {reviews.map((review, idx) => (
         <ReviewCard review={review} key={idx} />
       ))}

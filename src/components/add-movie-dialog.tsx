@@ -11,11 +11,11 @@ import {
 } from "@radix-ui/react-dialog";
 import { Separator } from "@radix-ui/react-separator";
 import { SubmitHandler, useForm } from "react-hook-form";
+import axios from "axios";
 
 interface AddMovieFormValues {
   title: string;
   description: string;
-  imgUrl?: string;
 }
 
 export const AddMovieDialog = () => {
@@ -24,17 +24,20 @@ export const AddMovieDialog = () => {
   const [open, setOpen] = useState(false);
 
   const onSubmit: SubmitHandler<AddMovieFormValues> = async (data) => {
-    {
-      /* TODO: handle form submission */
-    }
-
-    const processedData: AddMovieFormValues = {
+    const processedData = {
       title: data.title,
       description: data.description,
       imgUrl: imageBase64,
     };
 
-    console.log(processedData);
+    await axios
+      .post("/api/movies", processedData)
+      .catch((error) => {
+        console.error(error);
+      })
+      .then((response) => {
+        console.log(response);
+      });
   };
 
   const onFileChange = async (file: File | null) => {
@@ -73,8 +76,8 @@ export const AddMovieDialog = () => {
           />
           {/* TODO: formularz na dodawanie filmu:
                 - api endpoint na dodawanie filmu [done]
-                - wizualny formularz
-                - logika na wysyłanie danych na backend
+                - wizualny formularz [done]
+                - logika na wysyłanie danych na backend [in progress]
                 - [optional] walidacja
             */}
           <form
@@ -108,7 +111,6 @@ export const AddMovieDialog = () => {
               </label>
               <input
                 type="file"
-                {...register("imgUrl")}
                 className="w-full px-2 py-1"
                 placeholder="Movie cover image..."
                 accept="image/png, image/jpeg"
